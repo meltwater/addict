@@ -14,7 +14,7 @@ defmodule Addict.Mailers do
   end
 
   defp do_send_email(to, from, subject, html_body, mail_service) do
-    mail_service = to_string(mail_service) |> Mix.Utils.camelize
+    mail_service = to_string(mail_service) |> Macro.camelize
     mailer = Module.concat Addict.Mailers, mail_service
     mailer.send_email(to, from, subject, html_body)
   end
